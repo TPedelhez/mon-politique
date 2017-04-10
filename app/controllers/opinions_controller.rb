@@ -55,10 +55,7 @@ class OpinionsController < ApplicationController
     @opinion.rate = params[:rate]
     @opinion.save
 
-    a = []
-    @opinion.each do |opinion|
-      a << opinion.card_id
-    end
+
 
 
     respond_to do |format|
