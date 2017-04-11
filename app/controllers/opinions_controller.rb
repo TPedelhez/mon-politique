@@ -65,7 +65,7 @@ class OpinionsController < ApplicationController
 
     respond_to do |format|
 
-        format.html { redirect_to new_card_opinion_path(card_id: ([*6..117] - a).sample)   }
+        format.html { redirect_to new_card_opinion_path(card_id: ([*6..117]).sample)   }
         format.json { render :show, status: :ok, location: @opinion }
 
     end
