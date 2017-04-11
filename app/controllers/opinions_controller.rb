@@ -56,15 +56,23 @@ class OpinionsController < ApplicationController
     @opinion.save
 
 
-
-
-
-    respond_to do |format|
-
-        format.html { redirect_to new_card_opinion_path(card_id: rand(6..117))   }
-        format.json { render :show, status: :ok, location: @opinion }
-
+    a = []
+    array = Opinion.all.select { |opinion| opinion.user_id == current_user.id }
+    array.each do |item|
+       a << item.card_id
     end
+
+    if a.length == [*24..30].length
+      redirect_to opinions_path
+    else
+      respond_to do |format|
+
+          format.html { redirect_to new_card_opinion_path(card_id: ([*24..30] - a).sample) }
+          format.json { render :show, status: :ok, location: @opinion }
+
+      end
+    end
+
   end
 
   # DELETE /opinions/1
