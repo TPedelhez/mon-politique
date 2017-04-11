@@ -62,7 +62,7 @@ class OpinionsController < ApplicationController
        a << item.card_id
     end
 
-    if a.length == [*24..30].length
+    if a.length == [*6..117].length
       redirect_to opinions_path
     else
       respond_to do |format|
