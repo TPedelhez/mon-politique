@@ -55,17 +55,13 @@ class OpinionsController < ApplicationController
     @opinion.rate = params[:rate]
     @opinion.save
 
-    a = []
-    @opinion.each do |opinion|
-      a << opinion.card_id
-    end
-    a << params[:card_id]
+
 
 
 
     respond_to do |format|
 
-        format.html { redirect_to new_card_opinion_path(card_id: ([*6..117]).sample)   }
+        format.html { redirect_to new_card_opinion_path(card_id: rand(6..117))   }
         format.json { render :show, status: :ok, location: @opinion }
 
     end
