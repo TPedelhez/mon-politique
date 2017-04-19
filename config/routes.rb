@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :opinions
-  resources :cards  do
+  resources :cards, :only => [:index]  do
     resources :opinions
   end
   root to: 'pages#home'
